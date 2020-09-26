@@ -39,3 +39,11 @@ map <space> /
 " searching backwards
 map <c-space> ?
 
+" gvim options
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+    set guifont=Ubuntu\ Mono\ 14
+endif
