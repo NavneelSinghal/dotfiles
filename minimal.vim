@@ -39,8 +39,13 @@ map <space> /
 " searching backwards
 map <c-space> ?
 
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+
 " gvim options
 if has("gui_running")
+    set background=light
     set guioptions-=T
     set guioptions-=e
     set t_Co=256
