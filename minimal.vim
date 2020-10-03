@@ -18,6 +18,7 @@ set laststatus=2                " always show the status bar
 set history=500                 " enable copying of at most 500 lines across buffers
 set ruler                       " show current position
 set cmdheight=2                 " set the max height of the command area to 2
+set clipboard=unnamed,unnamedplus " set the clipboard to system clipboard
 "try
 "    colorscheme gruvbox         " try to change colorscheme to gruvbox
 "catch
@@ -57,3 +58,9 @@ endif
 packadd termdebug
 let g:termdebug_popup = 0
 let g:termdebug_wide = 163
+
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
