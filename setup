@@ -1,0 +1,7 @@
+sudo apt install curl
+curl -sL install-node.now.sh/lts | sudo bash
+cd ~/.vim/bundle && \
+git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
