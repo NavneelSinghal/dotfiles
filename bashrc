@@ -65,7 +65,11 @@ fi
 #export PS1="\[\e[32m\]\W\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
 #unset color_prompt force_color_promp
 #export PS1="\[\e]0;\u@\h: \w\a\]\[\e[32m\]\t, \d (\u, \s) \w\[\e[m\]\[\e[32m\]\$\[\e[m\] "
-export PS1="\[\e]0;\u@\h: \w\a\]\[\e[32m\]\t, \d \w\[\e[m\]\[\e[32m\]\$\[\e[m\] "
+
+#export PS1="\[\e]0;\u@\h: \w\a\]\[\e[32m\]\t, \d \w\[\e[m\]\[\e[32m\]\$\[\e[m\] "
+#export PS1="\[\e]0;\w\a\]\[\e[32m\]\t, \d \w\[\e[m\]\[\e[32m\]\$\[\e[m\] "
+#export PS1="\[\e[1;32m\]┌─\[\e[0;31m\][\t]\[\e[0;94m\] [\d] \n\[\e[1;32m\]└─\[\e[0;34m\][\w] \[\e[1;32m\]〉\[\e[m\]"
+export PS1="\[\e]0;\w\a\]\[\e[0;32m\]┌─\[\e[0;31m\][\t]\[\e[0;94m\] [\d] \n\[\e[0;32m\]└─\[\e[0;34m\][\w] \[\e[0;32m\]〉\[\e[m\]"
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -169,3 +173,4 @@ export PATH=$(echo "$PATH" | awk -v RS=: -v ORS=: '!(a[$0]++)' | sed 's/:$//')
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
