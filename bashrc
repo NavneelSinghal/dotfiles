@@ -1,3 +1,12 @@
+# #
+# # ~/.bashrc
+# #
+# 
+# # If not running interactively, don't do anything
+# [[ $- != *i* ]] && return
+# 
+# alias ls='ls --color=auto'
+# PS1='[\u@\h \W]\$ '
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -69,7 +78,9 @@ fi
 #export PS1="\[\e]0;\u@\h: \w\a\]\[\e[32m\]\t, \d \w\[\e[m\]\[\e[32m\]\$\[\e[m\] "
 #export PS1="\[\e]0;\w\a\]\[\e[32m\]\t, \d \w\[\e[m\]\[\e[32m\]\$\[\e[m\] "
 #export PS1="\[\e[1;32m\]┌─\[\e[0;31m\][\t]\[\e[0;94m\] [\d] \n\[\e[1;32m\]└─\[\e[0;34m\][\w] \[\e[1;32m\]〉\[\e[m\]"
-export PS1="\[\e]0;\w\a\]\[\e[0;32m\]┌─\[\e[0;31m\][\t]\[\e[0;94m\] [\d] \n\[\e[0;32m\]└─\[\e[0;34m\][\w] \[\e[0;32m\]〉\[\e[m\]"
+#export PS1="\[\e]0;\w\a\]\[\e[0;32m\]┌─\[\e[0;31m\][\t]\[\e[0;94m\] [\d] \n\[\e[0;32m\]└─\[\e[0;34m\][\w] \[\e[0;32m\]〉\[\e[m\]"
+export PS1="\[\e]0;\w\a\] > "
+#export PS1="\[\e]0;\w\a\]\[\e[0;36m]\u:\W$ [\e[0m]"
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -174,3 +185,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/share/powerline/bindings/bash/powerline.sh

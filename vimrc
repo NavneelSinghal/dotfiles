@@ -38,6 +38,8 @@ let g:CSApprox_hook_post = [
             \ 'highlight clear LineNr'
             \]
 
+Plug 'powerline/powerline'
+
 call plug#end()
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -50,6 +52,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'udalov/kotlin-vim'
 " https://github.com/iamcco/markdown-preview.nvim/issues/43
 
@@ -228,10 +232,31 @@ endtry
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-set laststatus=2
+" Powerline setup
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+if has("gui_running")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h15
+        colorscheme PaperColor              " set color scheme
+    endif
+endif
 
-"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ Line:\ %l\ \ Column:\ %c
+set laststatus=2
+" 
+" "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ Line:\ %l\ \ Column:\ %c
+
+let g:airline_theme='badwolf'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline_powerline_fonts=1
 
 map 0 ^
 
@@ -423,3 +448,4 @@ let g:mkdp_filetypes = ['markdown']
 
 " set kotlin filetypes
 au BufNewFile,BufRead *.kt set filetype=kotlin
+
