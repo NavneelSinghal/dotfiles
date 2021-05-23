@@ -93,7 +93,7 @@ endif
 
 set ruler
 
-set relativenumber
+set number relativenumber
 
 set cmdheight=2
 
