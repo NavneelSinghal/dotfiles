@@ -161,24 +161,26 @@ export INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/navneel/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/navneel/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/navneel/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/navneel/miniconda3/bin:$PATH"
+        export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH="/home/navneel/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
 # to avoid duplicates in PATH
 export PATH=$(echo "$PATH" | awk -v RS=: -v ORS=: '!(a[$0]++)' | sed 's/:$//')
-# export PATH=/home/navneel/.local/bin:/home/navneel/miniconda3/bin:/usr/local/texlive/2020/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/navneel/.fzf/bin
+# export PATH=$HOME/.local/bin:$HOME/miniconda3/bin:/usr/local/texlive/2020/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$HOME/.fzf/bin
 
 
 export NVM_DIR="$HOME/.nvm"
